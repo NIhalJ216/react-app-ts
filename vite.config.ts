@@ -11,4 +11,7 @@ export default defineConfig({
       '@utils': '/src/utils',
     },
   },
+  optimizeDeps: {
+    include: ['react-redux'], // Ensure Vite optimizes react-redux
+  },
 })

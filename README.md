@@ -2,7 +2,8 @@
 
 - npm create vite@latest react-app-ts --template react-ts
 - npm i
-- npm install -D eslint prettier eslint-plugin-react eslint-config-prettier eslint-plugin-prettier typescript-eslint eslint-plugin-react-hooks eslint-plugin-react-refresh
+- npm install -D eslint prettier eslint-plugin-react eslint-config-prettier eslint-plugin-prettier typescript-eslint eslint-plugin-react-hooks eslint-plugin-react-refresh @reduxjs/toolkit react-redux
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
