@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from '@components/Button'
 import Counter from './Counter'
 
 const Home: React.FC = () => {
@@ -7,7 +6,6 @@ const Home: React.FC = () => {
     <div style={{ textAlign: 'center', padding: '50px' }}>
       <h1>Welcome to Our Website</h1>
       <p>This is the landing page of our awesome application.</p>
-      <Button onClick={() => alert('Button Clicked!')}>Get Started</Button>
       <Counter />
     </div>
   )
