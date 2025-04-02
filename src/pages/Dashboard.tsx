@@ -8,10 +8,17 @@ import MaterialUISwitch from '../components/MuiSwitch'
 
 const Dashboard: React.FC = () => {
   const navigate = useNavigate()
-  const dispatch = useAppDispatch();
-  const themeMode = useAppSelector((state: RootState) => state.theme.mode);
-  const theme = useTheme();
-  console.log('Theme', theme.palette.primary.main)
+  const dispatch = useAppDispatch()
+  const themeMode = useAppSelector((state: RootState) => state.theme.mode)
+  const theme = useTheme()
+
+  const buttons = [
+    { label: 'Home', url: '/' },
+    { label: 'About', url: '/about' },
+    { label: 'Inputs', url: '/inputs' },
+    { label: 'Skills', url: '/skills' },
+  ]
+
   return (
     <Stack
       direction='row'
@@ -20,23 +27,26 @@ const Dashboard: React.FC = () => {
       spacing={2}
       sx={{ padding: 2 }}
     >
-      <Button
-        variant='text'
-        onClick={() => navigate('/')}
-        sx={{ color: theme.palette.primary.main }}
-      >
-        Home
-      </Button>
-      <Button
-        variant='text'
-        onClick={() => navigate('/about')}
-        sx={{ color: theme.palette.primary.main }}
-      >
-        About
-      </Button>
+      {buttons.map((button, index) => (
+        <Button
+          key={index}
+          variant='text'
+          onClick={() => navigate(button.url)}
+          sx={{ color: theme.palette.primary.main }}
+        >
+          {button.label}
+        </Button>
+      ))}
       <FormGroup>
-        <FormControlLabel control={<MaterialUISwitch checked={themeMode === "dark"}
-          onChange={() => dispatch(toggleTheme())} />} label={`Change To ${themeMode === "dark" ? 'Light' : 'Dark'}`} />
+        <FormControlLabel
+          control={
+            <MaterialUISwitch
+              checked={themeMode === 'dark'}
+              onChange={() => dispatch(toggleTheme())}
+            />
+          }
+          label={`Change To ${themeMode === 'dark' ? 'Light' : 'Dark'}`}
+        />
       </FormGroup>
     </Stack>
   )
